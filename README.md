@@ -11,3 +11,9 @@ Hal yang menarik adalah Rust mengajari saya tentang variabel yang tidak digunaka
 ![Commit 2 screenshot](assets/images/reflection2.png)
 
 Pada bagian ini, saya memodifikasi fungsi handle_connection agar web server dapat mengembalikan halaman HTML sederhana ke browser. Saya belajar bagaimana format HTTP response disusun, termasuk baris status dan header seperti Content-Length. Saya juga mengenal penggunaan fungsi fs::read_to_string untuk membaca file HTML yang dikirimkan ke client. Rust memaksa saya menulis kode yang eksplisit dan aman, terutama saat mengelola file dan koneksi. Saya mulai melihat bagaimana web server berinteraksi langsung dengan browser, bukan sekadar mencetak ke console. Pengalaman ini membuka wawasan saya soal komunikasi client-server dari sisi server low-level.
+
+## Reflection 3
+
+![Commit 3 screenshot](assets/images/reflection3.png)
+
+Pada tahap ini, saya menambahkan logika validasi request URL sehingga server bisa membedakan antara permintaan halaman yang valid dan tidak valid. Saya belajar membuat response 404 menggunakan file HTML khusus dan memahami kapan dan bagaimana server harus mengembalikan status "Not Found". Refactoring sangat membantu agar kode lebih terstruktur, mudah dibaca, dan dipelihara, terutama saat banyak kondisi berbeda harus ditangani. Saya juga menyadari bahwa tanpa validasi ini, server tidak bisa menangani permintaan berbeda secara efisien. Melalui bagian ini, saya melihat pentingnya membuat server yang tidak hanya bisa merespons, tapi juga merespons dengan tepat.
