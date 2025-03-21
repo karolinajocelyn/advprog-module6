@@ -6,9 +6,11 @@ use std::{
     time::Duration,
 };
 
+use hello::ThreadPool; 
+
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = ThreadPool::new(4);
+    let pool = ThreadPool::build(4).expect("Failed to build thread pool");
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
@@ -25,6 +27,9 @@ fn handle_connection(mut stream: TcpStream) {
 
     let (status_line, filename) = match &request_line[..] {
         "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", "src/templates/hello.html"),
+        "GET /sleep HTTP/1.1" => {
+            ("HTTP/1.1 200 OK", "src/templates/hello.html")
+        }
         _ => ("HTTP/1.1 404 NOT FOUND", "src/templates/404.html"),
     };
 

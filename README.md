@@ -25,3 +25,7 @@ Di tahap ini, saya mensimulasikan permintaan lambat dengan menambahkan delay sel
 ## Reflection 5
 
 Di bagian ini, saya mengimplementasikan server multithreaded menggunakan ThreadPool, mengikuti panduan dari Rust Book. Saya belajar cara mendesain pool dengan sejumlah thread tetap agar server tidak membuat thread tak terbatas, yang bisa menyebabkan serangan DoS. Konsep ownership kembali penting karena ThreadPool harus meminjam tugas dan memastikan sinkronisasi thread. Dengan pendekatan ini, server saya mampu menangani beberapa request secara bersamaan, tanpa blocking. Penting juga untuk balance antara concurrency dan resource control agar server tetap efisien dan aman.
+
+## Bonus Reflection
+
+Saya mencoba membuat fungsi build() sebagai pengganti new() untuk membangun ThreadPool. Hal ini membuat saya memahami pola desain builder dan bagaimana Rust memberikan fleksibilitas dalam membangun API. Dengan membandingkan dua pendekatan tersebut, saya menyadari bahwa build() bisa memberikan konfigurasi lebih lanjut. Saya juga belajar bahwa hal kecil seperti ini bisa meningkatkan kualitas dan skalabilitas kode. Rust memberikan kontrol lebih dalam membangun fungsi-fungsi custom yang tetap aman dan efisien.
