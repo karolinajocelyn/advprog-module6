@@ -21,3 +21,7 @@ Pada tahap ini, saya menambahkan logika validasi request URL sehingga server bis
 ## Reflection 4
 
 Di tahap ini, saya mensimulasikan permintaan lambat dengan menambahkan delay selama 10 detik menggunakan thread::sleep. Saya mencoba mengakses /sleep dan halaman utama secara bersamaan, dan menyadari bahwa server hanya bisa melayani satu permintaan secara berurutan (blocking). Hal ini menunjukkan keterbatasan server single-threaded, terutama jika ada banyak permintaan yang harus dilayani bersamaan. Saya jadi memahami pentingnya concurrency dan bahwa server harus mampu menangani beberapa request sekaligus untuk performa yang baik.
+
+## Reflection 5
+
+Di bagian ini, saya mengimplementasikan server multithreaded menggunakan ThreadPool, mengikuti panduan dari Rust Book. Saya belajar cara mendesain pool dengan sejumlah thread tetap agar server tidak membuat thread tak terbatas, yang bisa menyebabkan serangan DoS. Konsep ownership kembali penting karena ThreadPool harus meminjam tugas dan memastikan sinkronisasi thread. Dengan pendekatan ini, server saya mampu menangani beberapa request secara bersamaan, tanpa blocking. Penting juga untuk balance antara concurrency dan resource control agar server tetap efisien dan aman.
